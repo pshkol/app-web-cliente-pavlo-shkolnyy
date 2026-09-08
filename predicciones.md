@@ -1,3 +1,5 @@
 # Predicciones
 
 - Voy a crear el esqueleto basico de HTML para el index.html
+
+- Voy a recrear el esqueleto basico de HTML con tematica de velas.
