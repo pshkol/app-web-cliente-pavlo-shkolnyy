@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Formulario y canales de contacto de la tienda de velas artesanales Luz de Cera."
+    >
+    <title>Contacto | Luz de Cera</title>
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" aria-label="Ir al inicio de Luz de Cera">
+        <strong>Luz de Cera</strong>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <nav aria-label="Migas de pan">
+        <ol>
+          <li><a href="index.html">Inicio</a></li>
+          <li aria-current="page">Contacto</li>
+        </ol>
+      </nav>
+
+      <section aria-labelledby="titulo-contacto">
+        <h1 id="titulo-contacto">Contactanos</h1>
+        <p>
+          Completá el formulario para consultar sobre productos, pedidos
+          personalizados o cualquier otra duda.
+        </p>
+        <p id="aviso-formulario">
+          Este formulario es una demostración y no enviará ni guardará tus datos.
+        </p>
+
+        <form id="formulario-contacto" action="#formulario-contacto" method="get" aria-describedby="aviso-formulario">
+          <fieldset>
+            <legend>Datos personales</legend>
+
+            <p>
+              <label>
+                Nombre y apellido
+                <input
+                  type="text"
+                  name="nombre"
+                  autocomplete="name"
+                  minlength="2"
+                  maxlength="80"
+                  required
+                >
+              </label>
+            </p>
+
+            <p>
+              <label
+                >Correo electrónico
+                <input
+                  type="email"
+                  name="correo"
+                  autocomplete="email"
+                  maxlength="120"
+                  required
+                >
+              </label>
+            </p>
+
+            <p>
+              <label
+                >Teléfono <small>(opcional)</small>
+                <input
+                  type="tel"
+                  name="telefono"
+                  autocomplete="tel"
+                  maxlength="30"
+                >
+              </label>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Tu consulta</legend>
+
+            <p>
+              <label for="asunto">Asunto</label>
+              <select id="asunto" name="asunto" required>
+                <option value="" selected disabled>Seleccioná una opción</option>
+                <option value="producto">Consulta sobre un producto</option>
+                <option value="pedido">Estado de un pedido</option>
+                <option value="personalizado">Pedido personalizado</option>
+                <option value="mayorista">Compra mayorista</option>
+                <option value="otro">Otro</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="mensaje">Mensaje</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="8"
+                minlength="10"
+                maxlength="1000"
+                required
+              ></textarea>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>¿Cómo preferís que te respondamos?</legend>
+
+            <label>
+              <input type="radio" name="respuesta" value="correo" checked>
+              Por correo electrónico
+            </label>
+
+            <label>
+              <input type="radio" name="respuesta" value="whatsapp">
+              Por WhatsApp
+            </label>
+          </fieldset>
+
+          <p>
+            <label>
+              <input type="checkbox" name="acepta-contacto" required>
+              Acepto que Luz de Cera utilice estos datos para responder mi consulta.
+            </label>
+          </p>
+
+          <p>
+            <button type="submit">Enviar consulta</button>
+            <button type="reset">Limpiar formulario</button>
+          </p>
+        </form>
+      </section>
+
+      <section aria-labelledby="titulo-otros-canales">
+        <h2 id="titulo-otros-canales">Otros canales de contacto</h2>
+        <address>
+          <ul>
+            <li><a href="mailto:hola@luzdecera.com">hola@luzdecera.com</a></li>
+            <li><a href="https://wa.me/541112345678">WhatsApp: +54 11 1234-5678</a></li>
+            <li><a href="https://www.instagram.com/luzdecera">Instagram: @luzdecera</a></li>
+          </ul>
+        </address>
+      </section>
+    </main>
+
+    <footer>
+      <nav aria-label="Navegación del pie de página">
+        <a href="index.html">Volver al inicio</a>
+      </nav>
+      <p><small>&copy; 2026 Luz de Cera. Todos los derechos reservados.</small></p>
+    </footer>
+  </body>
+</html>
