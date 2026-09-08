@@ -3,85 +3,250 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tienda en línea con productos destacados de diferentes categorías.">
-    <title>Tienda Universitaria</title>
+    <meta
+      name="description"
+      content="Tienda de velas artesanales para decorar, regalar y crear momentos especiales."
+    >
+    <title>Luz de Cera | Velas artesanales</title>
   </head>
+
   <body>
     <header>
-      <a href="index.html" aria-label="Ir a la página de inicio">
-        <strong>Tienda Universitaria</strong>
+      <a href="#inicio" aria-label="Ir al inicio de Luz de Cera">
+        <strong>Luz de Cera</strong>
       </a>
 
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="index.html" aria-current="page">Inicio</a></li>
-          <li><a href="#productos-destacados">Productos</a></li>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#mas-vendidas">Las más vendidas</a></li>
+          <li><a href="#animales">Animales</a></li>
+          <li><a href="#aromaticas">Aromáticas</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
     </header>
 
-    <main>
-      <h1>Encontrá lo que necesitás</h1>
-      <p>Explorá nuestra selección de productos destacados.</p>
+    <main id="inicio">
+      <section aria-labelledby="titulo-principal">
+        <h1 id="titulo-principal">Velas artesanales para cada momento</h1>
+        <p>
+          Descubrí velas hechas a mano para decorar tu hogar, crear ambientes
+          especiales o regalar.
+        </p>
+        <p><a href="#productos">Ver todos los productos</a></p>
+      </section>
 
-      <aside aria-labelledby="titulo-filtros">
-        <h2 id="titulo-filtros">Filtrar productos</h2>
+      <section id="productos" aria-labelledby="titulo-productos">
+        <h2 id="titulo-productos">Nuestros productos</h2>
 
-        <form>
-          <fieldset>
-            <legend>Categoría</legend>
+        <section id="mas-vendidas" aria-labelledby="titulo-mas-vendidas">
+          <h3 id="titulo-mas-vendidas">Las más vendidas</h3>
+          <ul>
+            <li>
+              <article>
+                <h4>Vela Corazón</h4>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/29206575/pexels-photo-29206575/free-photo-of-elegant-heart-fluffy-candle-on-textured-surface.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Vela decorativa con forma de corazón sobre una superficie suave"
+                    width="240"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <figcaption>
+                    Foto de <a href="https://www.pexels.com/photo/elegant-heart-fluffy-candle-on-textured-surface-29206575/">Ionela Mat en Pexels</a>.
+                  </figcaption>
+                </figure>
+                <p>Vela decorativa de cera de soja con forma de corazón.</p>
+                <p><strong>$8.500</strong></p>
+                <p>Disponible</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <h4>Vela Burbujas</h4>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/10842090/pexels-photo-10842090.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Velas de burbujas en colores blanco y beige"
+                    width="240"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <figcaption>
+                    Foto de <a href="https://www.pexels.com/photo/white-and-beige-cubes-10842090/">Büşra İnce en Pexels</a>.
+                  </figcaption>
+                </figure>
+                <p>Diseño geométrico ideal para decorar cualquier espacio.</p>
+                <p><strong>$9.200</strong></p>
+                <p>Disponible</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <h4>Vela Torso</h4>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/7309747/pexels-photo-7309747.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Velas artesanales con forma de torso humano"
+                    width="240"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <figcaption>
+                    Foto de <a href="https://www.pexels.com/photo/photo-of-a-body-shape-candles-7309747/">RDNE Stock project en Pexels</a>.
+                  </figcaption>
+                </figure>
+                <p>Pieza escultórica artesanal de estilo minimalista.</p>
+                <p><strong>$11.000</strong></p>
+                <p>Disponible</p>
+              </article>
+            </li>
+          </ul>
+        </section>
 
-            <label>
-              <input type="checkbox" name="categoria" value="tecnologia">
-              Tecnología
-            </label>
+        <section id="animales" aria-labelledby="titulo-animales">
+          <h3 id="titulo-animales">Animales</h3>
+          <ul>
+            <li>
+              <article>
+                <h4>Vela Gatito</h4>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/30554913/pexels-photo-30554913/free-photo-of-cute-cat-shaped-candlelight-decoration.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Vela encendida con forma de gato"
+                    width="240"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <figcaption>
+                    Foto de <a href="https://www.pexels.com/photo/cute-cat-shaped-candlelight-decoration-30554913/">Hanifi Sarıkaya en Pexels</a>.
+                  </figcaption>
+                </figure>
+                <p>Vela con forma de gato, perfecta para amantes de los animales.</p>
+                <p><strong>$7.800</strong></p>
+                <p>Disponible</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <h4>Vela Osito</h4>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/37217207/pexels-photo-37217207/free-photo-of-pink-teddy-bear-shaped-candles-for-decor.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Velas decorativas rosas con forma de oso de peluche"
+                    width="240"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <figcaption>
+                    Foto de <a href="https://www.pexels.com/photo/pink-teddy-bear-shaped-candles-for-decor-37217207/">Soumalya Halder en Pexels</a>.
+                  </figcaption>
+                </figure>
+                <p>Un diseño tierno para regalar en ocasiones especiales.</p>
+                <p><strong>$8.200</strong></p>
+                <p>Disponible</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <h4>Vela Conejo</h4>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/13444192/pexels-photo-13444192.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Velas con forma de conejo junto a huevos decorativos"
+                    width="240"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <figcaption>
+                    Foto de <a href="https://www.pexels.com/photo/easter-rabbits-and-eggs-in-hay-13444192/">Zabinii Soap en Pexels</a>.
+                  </figcaption>
+                </figure>
+                <p>Figura artesanal para decorar habitaciones y celebraciones.</p>
+                <p><strong>$8.000</strong></p>
+                <p>Disponible</p>
+              </article>
+            </li>
+          </ul>
+        </section>
 
-            <label>
-              <input type="checkbox" name="categoria" value="hogar">
-              Hogar
-            </label>
+        <section id="aromaticas" aria-labelledby="titulo-aromaticas">
+          <h3 id="titulo-aromaticas">Aromáticas</h3>
+          <ul>
+            <li>
+              <article>
+                <h4>Lavanda</h4>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/39277498/pexels-photo-39277498/free-photo-of-lavender-themed-aromatherapy-candle-arrangement.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Velas aromáticas de lavanda rodeadas de flores violetas"
+                    width="240"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <figcaption>
+                    Foto de <a href="https://www.pexels.com/photo/lavender-themed-aromatherapy-candle-arrangement-39277498/">Tamanna Rumee en Pexels</a>.
+                  </figcaption>
+                </figure>
+                <p>Aroma floral y relajante en recipiente de vidrio reutilizable.</p>
+                <p><strong>$10.500</strong></p>
+                <p>Disponible</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <h4>Vainilla</h4>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/4316496/pexels-photo-4316496.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Vela aromática de vainilla sobre una bandeja de madera"
+                    width="240"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <figcaption>
+                    Foto de <a href="https://www.pexels.com/photo/vanilla-scented-candle-on-a-wooden-tray-4316496/">Snejina Nikolova en Pexels</a>.
+                  </figcaption>
+                </figure>
+                <p>Fragancia dulce y cálida para crear un ambiente acogedor.</p>
+                <p><strong>$10.500</strong></p>
+                <p>Disponible</p>
+              </article>
+            </li>
+            <li>
+              <article>
+                <h4>Eucalipto</h4>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/6798410/pexels-photo-6798410.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Velas aromáticas de eucalipto junto a hojas secas"
+                    width="240"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <figcaption>
+                    Foto de <a href="https://www.pexels.com/photo/close-up-of-scented-candles-6798410/">ROMAN ODINTSOV en Pexels</a>.
+                  </figcaption>
+                </figure>
+                <p>Aroma fresco y herbal para crear un ambiente revitalizante.</p>
+                <p><strong>$11.200</strong></p>
+                <p>Disponible</p>
+              </article>
+            </li>
+          </ul>
+        </section>
+      </section>
 
-            <label>
-              <input type="checkbox" name="categoria" value="indumentaria">
-              Indumentaria
-            </label>
-          </fieldset>
-
-          <fieldset>
-            <legend>Precio máximo</legend>
-            <label for="precio-maximo">Monto</label>
-            <input id="precio-maximo" type="number" name="precio-maximo" min="0" step="1000">
-          </fieldset>
-
-          <button type="submit">Aplicar filtros</button>
-          <button type="reset">Limpiar filtros</button>
-        </form>
-      </aside>
-
-      <section id="productos-destacados" aria-labelledby="titulo-productos">
-        <h2 id="titulo-productos">Productos destacados</h2>
-
-        <article>
-          <h3>Auriculares inalámbricos</h3>
-          <p>Sonido de alta calidad y batería de larga duración.</p>
-          <p><strong>$45.000</strong></p>
-          <a href="#">Ver producto</a>
-        </article>
-
-        <article>
-          <h3>Lámpara de escritorio</h3>
-          <p>Iluminación regulable para estudiar o trabajar.</p>
-          <p><strong>$28.000</strong></p>
-          <a href="#">Ver producto</a>
-        </article>
-
-        <article>
-          <h3>Mochila urbana</h3>
-          <p>Diseño resistente con compartimento para computadora.</p>
-          <p><strong>$52.000</strong></p>
-          <a href="#">Ver producto</a>
-        </article>
+      <section aria-labelledby="titulo-pedidos">
+        <h2 id="titulo-pedidos">¿Querés hacer un pedido?</h2>
+        <p>Consultanos por modelos, aromas y opciones personalizadas.</p>
+        <p>
+          <a href="https://wa.me/541112345678" target="_blank" rel="noopener noreferrer">
+            Hacer un pedido por WhatsApp
+          </a>
+        </p>
       </section>
     </main>
 
@@ -89,19 +254,36 @@
       <section aria-labelledby="titulo-contacto">
         <h2 id="titulo-contacto">Contacto</h2>
         <address>
-          <p>Correo: <a href="mailto:contacto@tiendauniversitaria.com">contacto@tiendauniversitaria.com</a></p>
-          <p>Teléfono: <a href="tel:+541112345678">+54 11 1234-5678</a></p>
+          <ul>
+            <li>
+              Correo:
+              <a href="mailto:hola@luzdecera.com">hola@luzdecera.com</a>
+            </li>
+            <li>
+              WhatsApp:
+              <a href="https://wa.me/541112345678" target="_blank" rel="noopener noreferrer">
+                +54 11 1234-5678
+              </a>
+            </li>
+            <li>
+              Instagram:
+              <a
+                href="https://www.instagram.com/luzdecera"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                @luzdecera
+              </a>
+            </li>
+          </ul>
         </address>
       </section>
 
-      <nav aria-label="Enlaces del pie de página">
-        <ul>
-          <li><a href="#">Términos y condiciones</a></li>
-          <li><a href="#">Política de privacidad</a></li>
-        </ul>
+      <nav aria-label="Navegación del pie de página">
+        <a href="#inicio">Volver al inicio</a>
       </nav>
 
-      <p><small>&copy; 2026 Tienda Universitaria. Todos los derechos reservados.</small></p>
+      <p><small>&copy; 2026 Luz de Cera. Todos los derechos reservados.</small></p>
     </footer>
   </body>
 </html>
