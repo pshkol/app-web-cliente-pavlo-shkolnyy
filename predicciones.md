@@ -9,3 +9,5 @@
 - Voy a crear la pagina del formulario de contacto
 
 - Voy a agrear la pagina del carrito de compra
+
+- Maquetar con los estilos principales header, catalogo, nav y footer
