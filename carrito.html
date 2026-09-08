@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Carrito de compras de Luz de Cera con los productos seleccionados y el resumen del pedido."
+    >
+    <title>Carrito de compras | Luz de Cera</title>
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" aria-label="Ir al inicio de Luz de Cera">
+        <strong>Luz de Cera</strong>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li>
+            <form action="carrito.html" method="get">
+              <button type="submit" aria-current="page">Carrito (4)</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <nav aria-label="Migas de pan">
+        <ol>
+          <li><a href="index.html">Inicio</a></li>
+          <li aria-current="page">Carrito de compras</li>
+        </ol>
+      </nav>
+
+      <h1>Tu carrito de compras</h1>
+      <p>Tenés 4 productos agregados.</p>
+
+      <form action="carrito.html" method="get">
+        <section aria-labelledby="titulo-productos-carrito">
+          <h2 id="titulo-productos-carrito">Productos agregados</h2>
+
+          <ul>
+            <li>
+              <article>
+                <h3><a href="productos/vela-corazon.html">Vela Corazón</a></h3>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/29206575/pexels-photo-29206575/free-photo-of-elegant-heart-fluffy-candle-on-textured-surface.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Vela decorativa con forma de corazón sobre una superficie suave"
+                    width="140"
+                  >
+                  <figcaption>Vela decorativa de cera de soja.</figcaption>
+                </figure>
+                <p>Precio unitario: <strong>$8.500</strong></p>
+                <p>
+                  <label for="cantidad-corazon">Cantidad</label>
+                  <input
+                    id="cantidad-corazon"
+                    name="cantidad-corazon"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value="1"
+                  >
+                </p>
+                <p>Subtotal: <strong>$8.500</strong></p>
+                <button type="submit" name="quitar" value="vela-corazon">Quitar producto</button>
+              </article>
+            </li>
+
+            <li>
+              <article>
+                <h3><a href="productos/vela-burbujas.html">Vela Burbujas</a></h3>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/10842090/pexels-photo-10842090.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Velas de burbujas en colores blanco y beige"
+                    width="140"
+                  >
+                  <figcaption>Vela geométrica artesanal de cera de soja.</figcaption>
+                </figure>
+                <p>Precio unitario: <strong>$9.200</strong></p>
+                <p>
+                  <label for="cantidad-burbujas">Cantidad</label>
+                  <input
+                    id="cantidad-burbujas"
+                    name="cantidad-burbujas"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value="2"
+                  >
+                </p>
+                <p>Subtotal: <strong>$18.400</strong></p>
+                <button type="submit" name="quitar" value="vela-burbujas">Quitar producto</button>
+              </article>
+            </li>
+
+            <li>
+              <article>
+                <h3><a href="productos/vela-lavanda.html">Vela de Lavanda</a></h3>
+                <figure>
+                  <img
+                    src="https://images.pexels.com/photos/39277498/pexels-photo-39277498/free-photo-of-lavender-themed-aromatherapy-candle-arrangement.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
+                    alt="Velas aromáticas de lavanda rodeadas de flores violetas"
+                    width="140"
+                  >
+                  <figcaption>Vela aromática en recipiente de vidrio reutilizable.</figcaption>
+                </figure>
+                <p>Precio unitario: <strong>$10.500</strong></p>
+                <p>
+                  <label for="cantidad-lavanda">Cantidad</label>
+                  <input
+                    id="cantidad-lavanda"
+                    name="cantidad-lavanda"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value="1"
+                  >
+                </p>
+                <p>Subtotal: <strong>$10.500</strong></p>
+                <button type="submit" name="quitar" value="vela-lavanda">Quitar producto</button>
+              </article>
+            </li>
+          </ul>
+
+          <p><button type="submit">Actualizar carrito</button></p>
+        </section>
+      </form>
+
+      <section aria-labelledby="titulo-resumen">
+        <h2 id="titulo-resumen">Resumen del pedido</h2>
+        <table>
+          <tbody>
+            <tr>
+              <th scope="row">Subtotal</th>
+              <td>$37.400</td>
+            </tr>
+            <tr>
+              <th scope="row">Envío</th>
+              <td>$3.500</td>
+            </tr>
+            <tr>
+              <th scope="row">Total</th>
+              <td><strong>$40.900</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <p>El costo de envío es estimado y se confirmará antes de completar el pedido.</p>
+
+        <form action="contacto.html" method="get">
+          <input type="hidden" name="asunto" value="pedido">
+          <button type="submit">Finalizar compra</button>
+        </form>
+        <p><a href="index.html#productos">Seguir comprando</a></p>
+      </section>
+    </main>
+
+    <footer>
+      <section aria-labelledby="titulo-contacto">
+        <h2 id="titulo-contacto">Contacto</h2>
+        <address>
+          <ul>
+            <li><a href="mailto:hola@luzdecera.com">hola@luzdecera.com</a></li>
+            <li><a href="https://wa.me/541112345678">WhatsApp: +54 11 1234-5678</a></li>
+            <li><a href="https://www.instagram.com/luzdecera">Instagram: @luzdecera</a></li>
+          </ul>
+        </address>
+      </section>
+      <p><small>&copy; 2026 Luz de Cera. Todos los derechos reservados.</small></p>
+    </footer>
+  </body>
+</html>
