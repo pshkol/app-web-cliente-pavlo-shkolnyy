@@ -7,3 +7,5 @@
 - Voy a crear el detalle de un producto
 
 - Voy a crear la pagina del formulario de contacto
+
+- Voy a agrear la pagina del carrito de compra
