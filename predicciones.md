@@ -15,3 +15,5 @@
 - Voy a agregar los estilos al detalle de un producto
 
 - Voy a agregar los estilos a la pagina de contacto
+
+- Voy a agregar los estilos a a pagina del carrito de compra
