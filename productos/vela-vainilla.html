@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Detalle de la vela aromática de Vainilla de Luz de Cera.">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles/comunes.css">
+    <link rel="stylesheet" href="../styles/producto.css">
     <title>Vela de Vainilla | Luz de Cera</title>
   </head>
-  <body>
+  <body class="pagina-producto">
     <header>
       <a href="../index.html"><strong>Luz de Cera</strong></a>
       <nav aria-label="Navegación principal">
@@ -59,6 +60,12 @@
             <dd>Disponible</dd>
           </dl>
         </section>
+        <form action="../carrito.html" method="get">
+          <input type="hidden" name="producto" value="vela-vainilla">
+          <label for="cantidad-vainilla">Cantidad</label>
+          <input id="cantidad-vainilla" name="cantidad" type="number" min="1" max="10" value="1" required>
+          <button type="submit">Agregar al carrito</button>
+        </form>
         <p><a href="https://wa.me/541112345678?text=Hola%2C%20quiero%20pedir%20la%20Vela%20de%20Vainilla">Pedir por WhatsApp</a></p>
         <p><a href="../index.html#aromaticas">Volver a Aromáticas</a></p>
       </article>
