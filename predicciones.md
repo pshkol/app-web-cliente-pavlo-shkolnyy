@@ -19,3 +19,5 @@
 - Voy a agregar los estilos a a pagina del carrito de compra
 
 - Mover la lista de productos a un JSON
+
+- Reescribir el README.md
