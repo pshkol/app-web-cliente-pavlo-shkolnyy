@@ -13,3 +13,5 @@
 - Maquetar con los estilos principales header, catalogo, nav y footer
 
 - Voy a agregar los estilos al detalle de un producto
+
+- Voy a agregar los estilos a la pagina de contacto
