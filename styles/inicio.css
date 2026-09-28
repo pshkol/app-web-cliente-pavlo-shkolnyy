@@ -132,6 +132,14 @@
   list-style: none;
 }
 
+#productos .estado-catalogo {
+  grid-column: 1 / -1;
+  padding: 2rem;
+  border: 1px solid var(--color-line);
+  color: var(--color-muted);
+  text-align: center;
+}
+
 #productos article {
   height: 100%;
   padding-bottom: 1.5rem;

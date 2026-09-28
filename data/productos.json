@@ -1,0 +1,166 @@
+{
+  "productos": [
+    {
+      "id": "vela-corazon",
+      "categoria": "mas-vendidas",
+      "nombre": "Vela Corazón",
+      "nombreDetalle": "Vela Corazón",
+      "descripcion": "Vela decorativa de cera de soja con forma de corazón.",
+      "precio": 8500,
+      "disponibilidad": "Disponible",
+      "url": "productos/vela-corazon.html",
+      "imagen": {
+        "src": "https://images.pexels.com/photos/29206575/pexels-photo-29206575/free-photo-of-elegant-heart-fluffy-candle-on-textured-surface.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "alt": "Vela decorativa con forma de corazón sobre una superficie suave",
+        "credito": {
+          "nombre": "Ionela Mat en Pexels",
+          "url": "https://www.pexels.com/photo/elegant-heart-fluffy-candle-on-textured-surface-29206575/"
+        }
+      }
+    },
+    {
+      "id": "vela-burbujas",
+      "categoria": "mas-vendidas",
+      "nombre": "Vela Burbujas",
+      "nombreDetalle": "Vela Burbujas",
+      "descripcion": "Diseño geométrico ideal para decorar cualquier espacio.",
+      "precio": 9200,
+      "disponibilidad": "Disponible",
+      "url": "productos/vela-burbujas.html",
+      "imagen": {
+        "src": "https://images.pexels.com/photos/10842090/pexels-photo-10842090.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "alt": "Velas de burbujas en colores blanco y beige",
+        "credito": {
+          "nombre": "Büşra İnce en Pexels",
+          "url": "https://www.pexels.com/photo/white-and-beige-cubes-10842090/"
+        }
+      }
+    },
+    {
+      "id": "vela-torso",
+      "categoria": "mas-vendidas",
+      "nombre": "Vela Torso",
+      "nombreDetalle": "Vela Torso",
+      "descripcion": "Pieza escultórica artesanal de estilo minimalista.",
+      "precio": 11000,
+      "disponibilidad": "Disponible",
+      "url": "productos/vela-torso.html",
+      "imagen": {
+        "src": "https://images.pexels.com/photos/7309747/pexels-photo-7309747.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "alt": "Velas artesanales con forma de torso humano",
+        "credito": {
+          "nombre": "RDNE Stock project en Pexels",
+          "url": "https://www.pexels.com/photo/photo-of-a-body-shape-candles-7309747/"
+        }
+      }
+    },
+    {
+      "id": "vela-gatito",
+      "categoria": "animales",
+      "nombre": "Vela Gatito",
+      "nombreDetalle": "Vela Gatito",
+      "descripcion": "Vela con forma de gato, perfecta para amantes de los animales.",
+      "precio": 7800,
+      "disponibilidad": "Disponible",
+      "url": "productos/vela-gatito.html",
+      "imagen": {
+        "src": "https://images.pexels.com/photos/30554913/pexels-photo-30554913/free-photo-of-cute-cat-shaped-candlelight-decoration.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "alt": "Vela encendida con forma de gato",
+        "credito": {
+          "nombre": "Hanifi Sarıkaya en Pexels",
+          "url": "https://www.pexels.com/photo/cute-cat-shaped-candlelight-decoration-30554913/"
+        }
+      }
+    },
+    {
+      "id": "vela-osito",
+      "categoria": "animales",
+      "nombre": "Vela Osito",
+      "nombreDetalle": "Vela Osito",
+      "descripcion": "Un diseño tierno para regalar en ocasiones especiales.",
+      "precio": 8200,
+      "disponibilidad": "Disponible",
+      "url": "productos/vela-osito.html",
+      "imagen": {
+        "src": "https://images.pexels.com/photos/37217207/pexels-photo-37217207/free-photo-of-pink-teddy-bear-shaped-candles-for-decor.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "alt": "Velas decorativas rosas con forma de oso de peluche",
+        "credito": {
+          "nombre": "Soumalya Halder en Pexels",
+          "url": "https://www.pexels.com/photo/pink-teddy-bear-shaped-candles-for-decor-37217207/"
+        }
+      }
+    },
+    {
+      "id": "vela-conejo",
+      "categoria": "animales",
+      "nombre": "Vela Conejo",
+      "nombreDetalle": "Vela Conejo",
+      "descripcion": "Figura artesanal para decorar habitaciones y celebraciones.",
+      "precio": 8000,
+      "disponibilidad": "Disponible",
+      "url": "productos/vela-conejo.html",
+      "imagen": {
+        "src": "https://images.pexels.com/photos/13444192/pexels-photo-13444192.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "alt": "Velas con forma de conejo junto a huevos decorativos",
+        "credito": {
+          "nombre": "Zabinii Soap en Pexels",
+          "url": "https://www.pexels.com/photo/easter-rabbits-and-eggs-in-hay-13444192/"
+        }
+      }
+    },
+    {
+      "id": "vela-lavanda",
+      "categoria": "aromaticas",
+      "nombre": "Lavanda",
+      "nombreDetalle": "Vela de Lavanda",
+      "descripcion": "Aroma floral y relajante en recipiente de vidrio reutilizable.",
+      "precio": 10500,
+      "disponibilidad": "Disponible",
+      "url": "productos/vela-lavanda.html",
+      "imagen": {
+        "src": "https://images.pexels.com/photos/39277498/pexels-photo-39277498/free-photo-of-lavender-themed-aromatherapy-candle-arrangement.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "alt": "Velas aromáticas de lavanda rodeadas de flores violetas",
+        "credito": {
+          "nombre": "Tamanna Rumee en Pexels",
+          "url": "https://www.pexels.com/photo/lavender-themed-aromatherapy-candle-arrangement-39277498/"
+        }
+      }
+    },
+    {
+      "id": "vela-vainilla",
+      "categoria": "aromaticas",
+      "nombre": "Vainilla",
+      "nombreDetalle": "Vela de Vainilla",
+      "descripcion": "Fragancia dulce y cálida para crear un ambiente acogedor.",
+      "precio": 10500,
+      "disponibilidad": "Disponible",
+      "url": "productos/vela-vainilla.html",
+      "imagen": {
+        "src": "https://images.pexels.com/photos/4316496/pexels-photo-4316496.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "alt": "Vela aromática de vainilla sobre una bandeja de madera",
+        "credito": {
+          "nombre": "Snejina Nikolova en Pexels",
+          "url": "https://www.pexels.com/photo/vanilla-scented-candle-on-a-wooden-tray-4316496/"
+        }
+      }
+    },
+    {
+      "id": "vela-eucalipto",
+      "categoria": "aromaticas",
+      "nombre": "Eucalipto",
+      "nombreDetalle": "Vela de Eucalipto",
+      "descripcion": "Aroma fresco y herbal para crear un ambiente revitalizante.",
+      "precio": 11200,
+      "disponibilidad": "Disponible",
+      "url": "productos/vela-eucalipto.html",
+      "imagen": {
+        "src": "https://images.pexels.com/photos/6798410/pexels-photo-6798410.jpeg?auto=compress&cs=tinysrgb&w=480",
+        "alt": "Velas aromáticas de eucalipto junto a hojas secas",
+        "credito": {
+          "nombre": "ROMAN ODINTSOV en Pexels",
+          "url": "https://www.pexels.com/photo/close-up-of-scented-candles-6798410/"
+        }
+      }
+    }
+  ]
+}
