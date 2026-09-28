@@ -11,3 +11,5 @@
 - Voy a agrear la pagina del carrito de compra
 
 - Maquetar con los estilos principales header, catalogo, nav y footer
+
+- Voy a agregar los estilos al detalle de un producto
