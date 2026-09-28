@@ -1,80 +1,87 @@
-# Cómo usar el repositorio template
+# Luz de Cera
 
-Guía paso a paso para arrancar las prácticas de la materia.
+Sitio web frontend para una tienda ficticia de velas artesanales. El proyecto presenta un catálogo organizado por categorías, páginas de detalle, un carrito de compras simulado y un formulario de contacto.
 
-Este repositorio es un **template**: cada alumno crea su propia copia independiente, no un fork. Tu copia no tiene ninguna relación con el repo del profesor, así que no hay riesgo de mandar cambios a otro lado por error.
+## Funcionalidades
 
-## 0. Requisitos previos
+- Catálogo de productos generado dinámicamente con JavaScript.
+- Productos organizados en las categorías más vendidas, animales y aromáticas.
+- Páginas individuales con descripción, precio, disponibilidad y fotografía.
+- Selector de cantidad y botón simulado para agregar productos al carrito.
+- Carrito de compras con edición de cantidades, subtotales y resumen del pedido.
+- Formulario de contacto con validaciones nativas de HTML.
+- Accesos directos para realizar consultas y pedidos por WhatsApp.
+- Diseño responsive para computadoras, tablets y dispositivos móviles.
+- Estructura semántica y estados accesibles durante la carga del catálogo.
 
-- Tener una cuenta de GitHub.
-- Tener Git instalado (`git --version` en la terminal para verificar).
-- Tener un editor de código (por ejemplo VS Code).
+## Tecnologías
 
-## 1. Crear tu propio repositorio a partir del template
+- HTML5
+- CSS3
+- JavaScript
+- JSON
 
-1. Entrá al repositorio del profesor en GitHub: https://github.com/mef760/proyecto-aplicaciones-web-cliente-2c-2026
-2. Hacé clic en el botón verde **"Use this template"** → **"Create a new repository"** (arriba a la derecha, al lado de "Code").
-3. Elegí tu cuenta como dueño, poné un nombre al repo (por ejemplo `app-web-cliente-tunombre`) y marcalo como **público** (el profesor necesita poder verlo sin permisos especiales).
-4. Hacé clic en **Create repository**.
+El proyecto no utiliza frameworks, dependencias ni un proceso de compilación.
 
-Esto te crea un repositorio 100% tuyo: `github.com/TU-USUARIO/nombre-repo`. No es un fork, no tiene conexión con el original, y vos sos el único dueño.
+## Estructura
 
-## 2. Clonar tu repositorio
-
-```bash
-git clone https://github.com/TU-USUARIO/nombre-repo.git
-cd nombre-repo
+```text
+.
+├── data/
+│   └── productos.json       # Fuente de datos del catálogo
+├── js/
+│   └── productos.js         # Carga del JSON y generación de cards
+├── productos/               # Páginas de detalle de cada producto
+├── styles/
+│   ├── carrito.css          # Estilos del carrito
+│   ├── comunes.css          # Estilos globales, header y footer
+│   ├── contacto.css         # Estilos de contacto
+│   ├── inicio.css           # Estilos de la página principal
+│   └── producto.css         # Estilos del detalle de producto
+├── carrito.html
+├── contacto.html
+└── index.html
 ```
 
-## 3. Crear una rama para tu trabajo
+## Ejecución local
 
-Aunque el repo es tuyo, conviene practicar el flujo de ramas + PR. Usá un nombre de rama descriptivo (por ejemplo `practica1`, `tp2-formulario`, etc.):
+El catálogo se obtiene con `fetch`, por lo que el proyecto debe abrirse desde un servidor HTTP. Abrir `index.html` directamente mediante `file://` puede impedir la lectura de `data/productos.json` por las restricciones de seguridad del navegador.
 
-```bash
-git checkout -b practica1
-```
-
-> Nunca trabajes directo sobre `main`: siempre creá una rama antes de tocar archivos.
-
-## 4. Hacer tus cambios
-
-Editá los archivos según la consigna. Después:
+Desde la raíz del proyecto se puede iniciar un servidor con Python:
 
 ```bash
-git add .
-git commit -m "Descripción breve de lo que hiciste"
-git push origin practica1
+python3 -m http.server 8000
 ```
 
-## 5. Abrir el Pull Request (dentro de tu propio repo)
+Después, abrir en el navegador:
 
-1. Andá a tu repositorio en GitHub.
-2. Vas a ver un botón que dice **"Compare & pull request"** — hacé clic ahí.
-3. Verificá que tanto la rama base como la de comparación pertenezcan a **TU** repositorio:
-   - base: `main`
-   - compare: `practica1`
-4. Completá la plantilla que aparece automáticamente (ver [`.github/pull_request_template.md`](.github/pull_request_template.md) para el detalle de qué información pide).
-5. Hacé clic en **Create pull request** y después en **Merge pull request** para integrarlo a tu `main`.
-
-Todo este proceso queda dentro de tu propio repositorio. El profesor accede a tu repo (por el link que le compartas) para revisar el código y el PR, pero nunca recibe un PR en su repositorio.
-
-## 6. Repetir el flujo para cada práctica
-
-Para cada nueva práctica o entrega, repetí los pasos 3 a 5 con una rama nueva (por ejemplo `practica2`, `practica3`, ...), partiendo siempre de `main` actualizado:
-
-```bash
-git checkout main
-git pull origin main
-git checkout -b practica2
+```text
+http://localhost:8000
 ```
 
-## 7. Compartir el repositorio con el profesor
+También se puede utilizar una extensión como Live Server en Visual Studio Code.
 
-Copiá el link de tu repositorio (`https://github.com/TU-USUARIO/nombre-repo`) y entregalo como indique el profesor (formulario, mail, etc.).
+## Catálogo de productos
 
-## Errores comunes
+Los productos de la página principal se administran desde `data/productos.json`. Cada entrada contiene:
 
-- **Buscar el botón "Fork" en vez de "Use this template"**: son cosas distintas. Fork crea una copia conectada al original; template crea una copia independiente. Usá siempre "Use this template".
-- **Trabajar directo sobre `main`**: creá una rama antes de tocar archivos, para practicar el flujo de PR.
-- **Dejar el repositorio como privado**: si el repo no es público, el profesor puede no tener acceso para revisarlo. Verificá los ajustes en Settings → General → Danger Zone si necesitás cambiar la visibilidad.
-- **No hacer push de la rama antes de abrir el PR**: si `git push origin practica1` falla, revisá que la rama exista localmente (`git branch`) y que el remoto esté bien configurado (`git remote -v`).
+- Identificador y categoría.
+- Nombre para la card y para el enlace de detalle.
+- Descripción, precio y disponibilidad.
+- Ruta de la página individual.
+- URL, texto alternativo y crédito de la imagen.
+
+Al cargar la página, `js/productos.js` consulta ese archivo, agrupa los productos por categoría y genera las cards dentro de los contenedores definidos en `index.html`.
+
+## Alcance actual
+
+Este proyecto es una demostración exclusivamente frontend:
+
+- El carrito contiene información simulada y no conserva cambios entre páginas.
+- Los botones para agregar, actualizar o finalizar una compra no se conectan con un backend.
+- El formulario de contacto valida los datos, pero no los envía ni almacena.
+- No existe autenticación, base de datos ni procesamiento de pagos.
+
+## Recursos externos
+
+Las imágenes utilizadas provienen de Pexels. Los créditos y enlaces a sus autores se muestran junto a cada fotografía.
