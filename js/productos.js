@@ -14,12 +14,13 @@ function crearEnlace(href, texto) {
   return enlace;
 }
 
-function crearCard(producto) {
+export function crearCard(producto, nivelTitulo = "h4") {
   const item = document.createElement("li");
   const articulo = document.createElement("article");
   articulo.dataset.productoId = producto.id;
 
-  const titulo = document.createElement("h4");
+  const titulo = document.createElement(nivelTitulo);
+  titulo.className = "titulo-card";
   titulo.append(crearEnlace(producto.url, producto.nombre));
 
   const figura = document.createElement("figure");
@@ -61,7 +62,7 @@ function crearCard(producto) {
   return item;
 }
 
-function mostrarMensaje(lista, mensaje) {
+export function mostrarMensaje(lista, mensaje) {
   const item = document.createElement("li");
   item.className = "estado-catalogo";
   item.textContent = mensaje;
@@ -69,22 +70,50 @@ function mostrarMensaje(lista, mensaje) {
   lista.removeAttribute("aria-busy");
 }
 
+export function mostrarSkeleton(lista, cantidad = 3) {
+  lista.setAttribute("aria-busy", "true");
+  const items = Array.from({ length: cantidad }, () => {
+    const item = document.createElement("li");
+    item.className = "skeleton-card";
+    item.setAttribute("aria-hidden", "true");
+
+    for (const parte of ["titulo", "imagen", "texto", "texto", "precio", "enlace"]) {
+      const bloque = document.createElement("span");
+      bloque.className = `skeleton skeleton-${parte}`;
+      item.append(bloque);
+    }
+
+    return item;
+  });
+  lista.replaceChildren(...items);
+}
+
+export async function obtenerProductos() {
+  const respuesta = await fetch(new URL("../data/productos.json", import.meta.url));
+
+  if (!respuesta.ok) {
+    throw new Error(`No se pudo cargar el catálogo (${respuesta.status})`);
+  }
+
+  const datos = await respuesta.json();
+
+  if (!Array.isArray(datos.productos)) {
+    throw new Error("El catálogo no tiene el formato esperado");
+  }
+
+  return datos.productos;
+}
+
 async function cargarProductos() {
+  for (const lista of listasPorCategoria.values()) {
+    mostrarSkeleton(lista);
+  }
+
   try {
-    const respuesta = await fetch("data/productos.json");
-
-    if (!respuesta.ok) {
-      throw new Error(`No se pudo cargar el catálogo (${respuesta.status})`);
-    }
-
-    const datos = await respuesta.json();
-
-    if (!Array.isArray(datos.productos)) {
-      throw new Error("El catálogo no tiene el formato esperado");
-    }
+    const catalogo = await obtenerProductos();
 
     for (const [categoria, lista] of listasPorCategoria) {
-      const productos = datos.productos.filter(
+      const productos = catalogo.filter(
         (producto) => producto.categoria === categoria,
       );
 
@@ -96,7 +125,7 @@ async function cargarProductos() {
         continue;
       }
 
-      lista.replaceChildren(...productos.map(crearCard));
+      lista.replaceChildren(...productos.map((producto) => crearCard(producto)));
       lista.removeAttribute("aria-busy");
     }
   } catch (error) {
@@ -111,4 +140,6 @@ async function cargarProductos() {
   }
 }
 
-cargarProductos();
+if (listasPorCategoria.size > 0) {
+  cargarProductos();
+}

@@ -21,3 +21,5 @@
 - Mover la lista de productos a un JSON
 
 - Reescribir el README.md
+
+- Agregar pagina de resultados de busqueda y el buscador en cada pagina

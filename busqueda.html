@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Encontrá tus velas artesanales favoritas por nombre, aroma o categoría en Luz de Cera.">
+    <link rel="stylesheet" href="styles/comunes.css">
+    <link rel="stylesheet" href="styles/catalogo.css">
+    <link rel="stylesheet" href="styles/busqueda.css">
+    <script src="js/busqueda.js" type="module"></script>
+    <title>Buscar productos | Luz de Cera</title>
+  </head>
+  <body class="pagina-busqueda">
+    <header>
+      <a href="index.html" aria-label="Ir al inicio de Luz de Cera">
+        <strong>Luz de Cera</strong>
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li>
+            <form action="carrito.html" method="get">
+              <button type="submit">Carrito (4)</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+      <form class="buscador" role="search" action="busqueda.html" method="get">
+        <label class="solo-lectores" for="buscar-productos">Buscar productos</label>
+        <input id="buscar-productos" type="search" name="q" placeholder="Buscá por nombre, aroma o categoría" maxlength="120">
+        <button type="submit">Buscar</button>
+      </form>
+    </header>
+
+    <main>
+      <nav aria-label="Migas de pan">
+        <ol>
+          <li><a href="index.html">Inicio</a></li>
+          <li aria-current="page">Búsqueda</li>
+        </ol>
+      </nav>
+      <h1>Encontrá tu próxima vela</h1>
+      <section aria-labelledby="titulo-resultados">
+        <h2 id="titulo-resultados">Resultados de búsqueda</h2>
+        <p id="estado-busqueda" role="status" aria-atomic="true"></p>
+        <ul id="resultados-busqueda" class="lista-productos" aria-label="Productos encontrados"></ul>
+        <button id="reintentar-busqueda" type="button" hidden>Reintentar búsqueda</button>
+        <noscript><p>Activá JavaScript para buscar y ver los productos del catálogo.</p></noscript>
+      </section>
+      <p class="volver-catalogo"><a href="index.html#productos">Ver el catálogo completo</a></p>
+    </main>
+
+    <footer>
+      <section aria-labelledby="titulo-contacto">
+        <h2 id="titulo-contacto">Contacto</h2>
+        <address>
+          <ul>
+            <li>Correo: <a href="mailto:hola@luzdecera.com">hola@luzdecera.com</a></li>
+            <li>WhatsApp: <a href="https://wa.me/541112345678" target="_blank" rel="noopener noreferrer">+54 11 1234-5678</a></li>
+            <li>Instagram: <a href="https://www.instagram.com/luzdecera" target="_blank" rel="noopener noreferrer">@luzdecera</a></li>
+          </ul>
+        </address>
+      </section>
+      <nav aria-label="Navegación del pie de página"><a href="index.html">Volver al inicio</a></nav>
+      <p><small>&copy; 2026 Luz de Cera. Todos los derechos reservados.</small></p>
+    </footer>
+  </body>
+</html>
