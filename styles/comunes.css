@@ -89,7 +89,7 @@ header {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem 2rem;
   padding: 1rem max(1.25rem, calc((100vw - 1180px) / 2));
   border-bottom: 1px solid rgb(117 93 75 / 16%);
   background: rgb(246 241 233 / 92%);
@@ -138,6 +138,49 @@ header nav form {
 
 header nav button {
   white-space: nowrap;
+}
+
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.buscador {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-self: center;
+  gap: 0.5rem;
+  width: min(100%, 680px);
+  margin: 0;
+  padding: 0.35rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  background: var(--color-surface);
+}
+
+.buscador input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-ink);
+  font-size: 0.9rem;
+}
+
+.buscador input::placeholder {
+  color: var(--color-muted);
+}
+
+.buscador button {
+  flex-shrink: 0;
 }
 
 body:not(.pagina-inicio) main {

@@ -8,8 +8,9 @@
       content="Tienda de velas artesanales para decorar, regalar y crear momentos especiales."
     >
     <link rel="stylesheet" href="styles/comunes.css">
+    <link rel="stylesheet" href="styles/catalogo.css">
     <link rel="stylesheet" href="styles/inicio.css">
-    <script src="js/productos.js" defer></script>
+    <script src="js/productos.js" type="module"></script>
     <title>Luz de Cera | Velas artesanales</title>
   </head>
 
@@ -33,6 +34,11 @@
           </li>
         </ul>
       </nav>
+      <form class="buscador" role="search" action="busqueda.html" method="get">
+        <label class="solo-lectores" for="buscar-productos">Buscar productos</label>
+        <input id="buscar-productos" type="search" name="q" placeholder="Buscá por nombre, aroma o categoría" maxlength="120">
+        <button type="submit">Buscar</button>
+      </form>
     </header>
 
     <main id="inicio">
