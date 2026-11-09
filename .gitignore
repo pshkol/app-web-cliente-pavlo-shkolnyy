@@ -1,3 +1,4 @@
 /.idea/
 .env
 /js/config.js
+/_site/

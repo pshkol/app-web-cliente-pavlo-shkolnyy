@@ -4,7 +4,7 @@ const SUPABASE_URL = process.env.SUPABASE_URL || "https://wmmiuijgcpsqsxszwhhk.s
 const SUPABASE_API_KEY = process.env.SUPABASE_API_KEY;
 
 if (!SUPABASE_API_KEY?.startsWith("sb_publishable_")) {
-  throw new Error("Configurá SUPABASE_API_KEY con una clave pública sb_publishable_ en .env.");
+  throw new Error("Configurá SUPABASE_API_KEY con una clave pública sb_publishable_ en .env o en GitHub Secrets.");
 }
 
 const url = new URL(SUPABASE_URL);
@@ -14,7 +14,7 @@ if (url.protocol !== "https:") {
 
 await writeFile(
   new URL("../js/config.js", import.meta.url),
-  "// Generado desde .env con scripts/configurar.mjs.\n" +
+  "// Configuración pública generada con scripts/configurar.mjs.\n" +
     `export const SUPABASE_URL = ${JSON.stringify(url.origin)};\n` +
     `export const SUPABASE_API_KEY = ${JSON.stringify(SUPABASE_API_KEY)};\n`,
 );

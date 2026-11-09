@@ -80,6 +80,19 @@ http://localhost:8000
 
 También se puede utilizar una extensión como Live Server en Visual Studio Code.
 
+## Despliegue en GitHub Pages
+
+El workflow `.github/workflows/pages.yml` publica automáticamente cada cambio en `main`. También se puede ejecutar manualmente desde la pestaña Actions.
+
+Configuración del repositorio:
+
+1. En **Settings → Secrets and variables → Actions**, guardar `SUPABASE_API_KEY` (la clave pública `sb_publishable_...`) y `SUPABASE_URL` como secretos del repositorio.
+2. En **Settings → Pages → Source**, seleccionar **GitHub Actions**.
+
+El workflow ejecuta `scripts/configurar.mjs` con esas variables, prepara una carpeta `_site` con los HTML y las carpetas `js` y `styles`, y la publica. No requiere npm ni dependencias. `.env` y los archivos internos del repositorio quedan fuera del despliegue; `js/config.js` se genera durante el workflow y sigue ignorado por Git.
+
+La clave no aparece en los archivos del repositorio, pero **la clave pública sí es visible en el sitio publicado y en las peticiones del navegador**. Nunca configurar una clave secreta o administrativa para este flujo.
+
 ## Catálogo de productos
 
 Los productos se administran en la tabla `public.products` del proyecto Supabase conectado. Ese es el nombre real de la tabla verificado mediante MCP; no existe una tabla `productos`. Sus columnas son:
