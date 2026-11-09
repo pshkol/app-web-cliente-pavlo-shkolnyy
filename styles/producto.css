@@ -2,6 +2,14 @@
   width: min(100% - 2.5rem, 1180px);
 }
 
+.pagina-producto [hidden] {
+  display: none;
+}
+
+#estado-producto:empty {
+  display: none;
+}
+
 .pagina-producto main > nav:first-child {
   margin-bottom: clamp(2rem, 5vw, 3.5rem);
 }

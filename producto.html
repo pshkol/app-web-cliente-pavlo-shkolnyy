@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubrí las velas artesanales de Luz de Cera.">
+    <link rel="stylesheet" href="styles/comunes.css">
+    <link rel="stylesheet" href="styles/producto.css">
+    <script src="js/producto.js" type="module"></script>
+    <title>Producto | Luz de Cera</title>
+  </head>
+  <body class="pagina-producto">
+    <header>
+      <a href="index.html"><strong>Luz de Cera</strong></a>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li>
+            <form action="carrito.html" method="get">
+              <button type="submit">Carrito (4)</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+      <form class="buscador" role="search" action="busqueda.html" method="get">
+        <label class="solo-lectores" for="buscar-productos">Buscar productos</label>
+        <input id="buscar-productos" type="search" name="q" placeholder="Buscá por nombre, aroma o categoría" maxlength="120">
+        <button type="submit">Buscar</button>
+      </form>
+    </header>
+    <main>
+      <nav aria-label="Migas de pan">
+        <ol>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a id="categoria-producto" href="index.html#productos">Productos</a></li>
+          <li id="miga-producto" aria-current="page">Detalle del producto</li>
+        </ol>
+      </nav>
+      <p id="estado-producto" role="status">Cargando producto…</p>
+      <button id="reintentar-producto" type="button" hidden>Reintentar</button>
+      <noscript><p>Activá JavaScript para consultar este producto.</p></noscript>
+      <article id="detalle-producto" aria-busy="true" hidden>
+        <h1 id="nombre-producto"></h1>
+        <section aria-labelledby="titulo-fotos">
+          <h2 id="titulo-fotos">Fotos</h2>
+          <figure>
+            <img id="imagen-producto" alt="" width="220">
+            <figcaption id="credito-producto" hidden></figcaption>
+          </figure>
+        </section>
+        <section aria-labelledby="titulo-descripcion">
+          <h2 id="titulo-descripcion">Descripción</h2>
+          <p id="descripcion-producto"></p>
+          <dl>
+            <dt>Precio</dt>
+            <dd><strong id="precio-producto"></strong></dd>
+            <dt>Disponibilidad</dt>
+            <dd id="disponibilidad-producto"></dd>
+          </dl>
+        </section>
+        <form action="carrito.html" method="get">
+          <input id="id-producto" type="hidden" name="producto">
+          <label for="cantidad-producto">Cantidad</label>
+          <input id="cantidad-producto" name="cantidad" type="number" min="1" max="10" value="1" required>
+          <button type="submit">Agregar al carrito</button>
+        </form>
+        <p><a id="whatsapp-producto">Pedir por WhatsApp</a></p>
+        <p><a id="volver-categoria" href="index.html#productos">Volver a los productos</a></p>
+      </article>
+    </main>
+    <footer id="contacto">
+      <h2>Contacto</h2>
+      <address>
+        <p><a href="mailto:hola@luzdecera.com">hola@luzdecera.com</a></p>
+        <p><a href="https://wa.me/541112345678">WhatsApp: +54 11 1234-5678</a></p>
+        <p><a href="https://www.instagram.com/luzdecera">Instagram: @luzdecera</a></p>
+      </address>
+    </footer>
+  </body>
+</html>

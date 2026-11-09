@@ -4,11 +4,11 @@ Sitio web frontend para una tienda ficticia de velas artesanales. El proyecto pr
 
 ## Funcionalidades
 
-- Catálogo de productos generado dinámicamente con JavaScript.
+- Catálogo de productos obtenido de Supabase mediante `fetch` y JavaScript nativo.
 - Buscador en el header de todas las páginas, con envío mediante Enter o el botón Buscar.
 - Resultados en cards, skeleton durante la carga y estados de búsqueda vacía o fallida con reintento.
 - Productos organizados en las categorías más vendidas, animales y aromáticas.
-- Páginas individuales con descripción, precio, disponibilidad y fotografía.
+- Una única página de detalle que consulta el producto indicado en la URL.
 - Selector de cantidad y botón simulado para agregar productos al carrito.
 - Carrito de compras con edición de cantidades, subtotales y resumen del pedido.
 - Formulario de contacto con validaciones nativas de HTML.
@@ -21,20 +21,22 @@ Sitio web frontend para una tienda ficticia de velas artesanales. El proyecto pr
 - HTML5
 - CSS3
 - JavaScript
-- JSON
+- API REST de Supabase (sin SDK)
 
-El proyecto no utiliza frameworks, dependencias ni un proceso de compilación.
+El sitio utiliza solamente HTML, CSS y JavaScript. No utiliza npm, frameworks ni dependencias. Un script de JavaScript genera la configuración pública desde `.env` antes de servir el sitio.
 
 ## Estructura
 
 ```text
 .
-├── data/
-│   └── productos.json       # Fuente de datos del catálogo
 ├── js/
 │   ├── busqueda.js          # Filtrado y estados de la búsqueda
-│   └── productos.js         # Carga del JSON, cards y skeleton compartidos
-├── productos/               # Páginas de detalle de cada producto
+│   ├── config.js            # Configuración pública generada (ignorada por Git)
+│   ├── producto.js          # Detalle según el parámetro id de la URL
+│   ├── productos.js         # Catálogo, cards y skeleton compartidos
+│   └── supabase.js          # Consultas REST y adaptación de los datos
+├── scripts/
+│   └── configurar.mjs       # Genera js/config.js desde las variables de .env
 ├── styles/
 │   ├── busqueda.css         # Página de resultados
 │   ├── catalogo.css         # Cards y skeleton compartidos
@@ -46,12 +48,23 @@ El proyecto no utiliza frameworks, dependencias ni un proceso de compilación.
 ├── busqueda.html
 ├── carrito.html
 ├── contacto.html
+├── producto.html           # Página única de detalle
 └── index.html
 ```
 
 ## Ejecución local
 
-El catálogo se obtiene con `fetch`, por lo que el proyecto debe abrirse desde un servidor HTTP. Abrir `index.html` directamente mediante `file://` puede impedir la lectura de `data/productos.json` por las restricciones de seguridad del navegador.
+El catálogo se obtiene con `fetch`, por lo que el proyecto debe abrirse desde un servidor HTTP.
+
+Crear `.env` tomando `.env.example` como referencia (si todavía no existe) y configurar `SUPABASE_API_KEY` con la clave pública `sb_publishable_...` del proyecto. `SUPABASE_URL` es opcional: por defecto se utiliza el proyecto conectado por MCP.
+
+Generar la configuración con Node.js 20.6 o posterior, sin instalar paquetes:
+
+```bash
+node --env-file=.env scripts/configurar.mjs
+```
+
+Repetir este comando al cambiar `.env`. El navegador utiliza únicamente `js/config.js`, que contiene la URL y la clave pública. Para publicar el sitio, incluir ese archivo generado junto con el HTML, CSS y JS; excluir `.env`, los scripts y los archivos internos del repositorio. Las claves secretas no son válidas para esta integración frontend.
 
 Desde la raíz del proyecto se puede iniciar un servidor con Python:
 
@@ -69,21 +82,22 @@ También se puede utilizar una extensión como Live Server en Visual Studio Code
 
 ## Catálogo de productos
 
-Los productos de la página principal se administran desde `data/productos.json`. Cada entrada contiene:
+Los productos se administran en la tabla `public.products` del proyecto Supabase conectado. Ese es el nombre real de la tabla verificado mediante MCP; no existe una tabla `productos`. Sus columnas son:
 
-- Identificador y categoría.
-- Nombre para la card y para el enlace de detalle.
-- Descripción, precio y disponibilidad.
-- Ruta de la página individual.
-- URL, texto alternativo y crédito de la imagen.
+- `id`, `category`.
+- `name`, `name_detail`.
+- `description`, `price`, `availability`.
+- `image_src`, `image_alt`, `image_credit_name`, `image_credit_url`.
 
-Al cargar la página, `js/productos.js` consulta ese archivo, agrupa los productos por categoría y genera las cards dentro de los contenedores definidos en `index.html`.
+`js/supabase.js` consulta `/rest/v1/products` con la cabecera `apikey` usando `SUPABASE_API_KEY`. La lectura pública está sujeta a los permisos y políticas RLS de Supabase. `js/productos.js` agrupa los resultados por categoría y genera las cards en `index.html`.
+
+Todos los enlaces de detalle apuntan a `producto.html?id=...`. Por ejemplo, `producto.html?id=7` consulta únicamente la fila con `id=7` mediante el filtro REST `id=eq.7`. El detalle muestra estados de carga, producto no encontrado y error con reintento.
 
 ## Búsqueda
 
 El formulario del header envía la consulta a `busqueda.html?q=...`, por lo que los resultados se pueden compartir mediante su URL. Busca por nombre, descripción y categoría sin distinguir mayúsculas ni tildes. Una consulta vacía muestra todo el catálogo.
 
-Durante la consulta del JSON se muestran skeletons con las proporciones de las cards. La animación respeta la preferencia de movimiento reducido del dispositivo. Si la carga falla, se ofrece un botón para reintentar.
+Durante la consulta a Supabase se muestran skeletons con las proporciones de las cards. La búsqueda filtra el catálogo recibido sin distinguir mayúsculas ni tildes. La animación respeta la preferencia de movimiento reducido del dispositivo. Si la carga falla, se ofrece un botón para reintentar.
 
 ## Alcance actual
 
@@ -92,7 +106,7 @@ Este proyecto es una demostración exclusivamente frontend:
 - El carrito contiene información simulada y no conserva cambios entre páginas.
 - Los botones para agregar, actualizar o finalizar una compra no se conectan con un backend.
 - El formulario de contacto valida los datos, pero no los envía ni almacena.
-- No existe autenticación, base de datos ni procesamiento de pagos.
+- El catálogo se lee de Supabase; no existe autenticación de usuarios ni procesamiento de pagos.
 
 ## Recursos externos
 

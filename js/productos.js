@@ -1,3 +1,7 @@
+import { obtenerProductos } from "./supabase.js";
+
+export { obtenerProductos };
+
 const listasPorCategoria = new Map(
   Array.from(document.querySelectorAll("[data-lista-productos]"), (lista) => [
     lista.dataset.categoria,
@@ -33,13 +37,13 @@ export function crearCard(producto, nivelTitulo = "h4") {
   imagen.decoding = "async";
   enlaceImagen.append(imagen);
 
-  const pieFoto = document.createElement("figcaption");
-  pieFoto.append(
-    "Foto de ",
-    crearEnlace(producto.imagen.credito.url, producto.imagen.credito.nombre),
-    ".",
-  );
-  figura.append(enlaceImagen, pieFoto);
+  figura.append(enlaceImagen);
+  const credito = producto.imagen.credito;
+  if (credito.nombre) {
+    const pieFoto = document.createElement("figcaption");
+    pieFoto.append("Foto de ", credito.url ? crearEnlace(credito.url, credito.nombre) : credito.nombre, ".");
+    figura.append(pieFoto);
+  }
 
   const descripcion = document.createElement("p");
   descripcion.textContent = producto.descripcion;
@@ -86,22 +90,6 @@ export function mostrarSkeleton(lista, cantidad = 3) {
     return item;
   });
   lista.replaceChildren(...items);
-}
-
-export async function obtenerProductos() {
-  const respuesta = await fetch(new URL("../data/productos.json", import.meta.url));
-
-  if (!respuesta.ok) {
-    throw new Error(`No se pudo cargar el catálogo (${respuesta.status})`);
-  }
-
-  const datos = await respuesta.json();
-
-  if (!Array.isArray(datos.productos)) {
-    throw new Error("El catálogo no tiene el formato esperado");
-  }
-
-  return datos.productos;
 }
 
 async function cargarProductos() {
