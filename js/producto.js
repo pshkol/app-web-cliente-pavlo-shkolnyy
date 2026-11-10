@@ -1,4 +1,5 @@
 import { obtenerProducto } from "./supabase.js";
+import { agregarProducto } from "./carrito-estado.js";
 
 const id = new URLSearchParams(window.location.search).get("id");
 const detalle = document.querySelector("#detalle-producto");
@@ -10,8 +11,26 @@ const categorias = new Map([
   ["aromaticas", "Aromáticas"],
 ]);
 const formatoPrecio = new Intl.NumberFormat("es-AR");
+let productoActual;
+
+document.querySelector("#agregar-producto").addEventListener("submit", async (evento) => {
+  evento.preventDefault();
+  if (!productoActual) return;
+  const boton = evento.currentTarget.querySelector("button");
+  const mensaje = document.querySelector("#estado-agregar");
+  boton.disabled = true;
+  try {
+    await agregarProducto(productoActual, document.querySelector("#cantidad-producto").valueAsNumber);
+    mensaje.textContent = "Producto agregado. Podés verlo en tu carrito.";
+  } catch (error) {
+    mensaje.textContent = error.message;
+  } finally {
+    boton.disabled = false;
+  }
+});
 
 function mostrarProducto(producto) {
+  productoActual = producto;
   const nombre = producto.nombreDetalle;
   document.title = `${nombre} | Luz de Cera`;
   document.querySelector('meta[name="description"]').content = producto.descripcion;

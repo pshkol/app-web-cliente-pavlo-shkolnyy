@@ -9,6 +9,7 @@
     >
     <link rel="stylesheet" href="styles/comunes.css">
     <link rel="stylesheet" href="styles/carrito.css">
+    <script src="js/carrito.js" type="module"></script>
     <title>Carrito de compras | Luz de Cera</title>
   </head>
 
@@ -25,7 +26,7 @@
           <li><a href="contacto.html">Contacto</a></li>
           <li>
             <form action="carrito.html" method="get">
-              <button type="submit" aria-current="page">Carrito (4)</button>
+              <button type="submit" aria-current="page" data-contador-carrito>Carrito (0)</button>
             </form>
           </li>
         </ul>
@@ -46,99 +47,20 @@
       </nav>
 
       <h1>Tu carrito de compras</h1>
-      <p>Tenés 4 productos agregados.</p>
+      <p id="cantidad-carrito" aria-live="polite">Cargando tu carrito…</p>
+      <noscript><p>Activá JavaScript para administrar tu carrito.</p></noscript>
 
-      <form action="carrito.html" method="get">
+      <form id="formulario-carrito" action="carrito.html" method="get">
         <section aria-labelledby="titulo-productos-carrito">
           <h2 id="titulo-productos-carrito">Productos agregados</h2>
 
-          <ul>
-            <li>
-              <article>
-                <h3><a href="producto.html?id=1">Vela Corazón</a></h3>
-                <figure>
-                  <img
-                    src="https://images.pexels.com/photos/29206575/pexels-photo-29206575/free-photo-of-elegant-heart-fluffy-candle-on-textured-surface.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
-                    alt="Vela decorativa con forma de corazón sobre una superficie suave"
-                    width="140"
-                  >
-                  <figcaption>Vela decorativa de cera de soja.</figcaption>
-                </figure>
-                <p>Precio unitario: <strong>$8.500</strong></p>
-                <p>
-                  <label for="cantidad-corazon">Cantidad</label>
-                  <input
-                    id="cantidad-corazon"
-                    name="cantidad-corazon"
-                    type="number"
-                    min="1"
-                    max="10"
-                    value="1"
-                  >
-                </p>
-                <p>Subtotal: <strong>$8.500</strong></p>
-                <button type="submit" name="quitar" value="vela-corazon">Quitar producto</button>
-              </article>
-            </li>
-
-            <li>
-              <article>
-                <h3><a href="producto.html?id=2">Vela Burbujas</a></h3>
-                <figure>
-                  <img
-                    src="https://images.pexels.com/photos/10842090/pexels-photo-10842090.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
-                    alt="Velas de burbujas en colores blanco y beige"
-                    width="140"
-                  >
-                  <figcaption>Vela geométrica artesanal de cera de soja.</figcaption>
-                </figure>
-                <p>Precio unitario: <strong>$9.200</strong></p>
-                <p>
-                  <label for="cantidad-burbujas">Cantidad</label>
-                  <input
-                    id="cantidad-burbujas"
-                    name="cantidad-burbujas"
-                    type="number"
-                    min="1"
-                    max="10"
-                    value="2"
-                  >
-                </p>
-                <p>Subtotal: <strong>$18.400</strong></p>
-                <button type="submit" name="quitar" value="vela-burbujas">Quitar producto</button>
-              </article>
-            </li>
-
-            <li>
-              <article>
-                <h3><a href="producto.html?id=7">Vela de Lavanda</a></h3>
-                <figure>
-                  <img
-                    src="https://images.pexels.com/photos/39277498/pexels-photo-39277498/free-photo-of-lavender-themed-aromatherapy-candle-arrangement.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=480"
-                    alt="Velas aromáticas de lavanda rodeadas de flores violetas"
-                    width="140"
-                  >
-                  <figcaption>Vela aromática en recipiente de vidrio reutilizable.</figcaption>
-                </figure>
-                <p>Precio unitario: <strong>$10.500</strong></p>
-                <p>
-                  <label for="cantidad-lavanda">Cantidad</label>
-                  <input
-                    id="cantidad-lavanda"
-                    name="cantidad-lavanda"
-                    type="number"
-                    min="1"
-                    max="10"
-                    value="1"
-                  >
-                </p>
-                <p>Subtotal: <strong>$10.500</strong></p>
-                <button type="submit" name="quitar" value="vela-lavanda">Quitar producto</button>
-              </article>
-            </li>
-          </ul>
-
-          <p><button type="submit">Actualizar carrito</button></p>
+          <ul id="lista-carrito"></ul>
+          <div id="carrito-vacio" hidden>
+            <h3>Un pequeño momento de calma empieza acá.</h3>
+            <p>Descubrí nuestras velas artesanales y encontrá tu favorita.</p>
+            <a href="index.html#productos">Explorar las velas</a>
+          </div>
+          <p id="estado-carrito" role="status"></p>
         </section>
       </form>
 
@@ -148,27 +70,42 @@
           <tbody>
             <tr>
               <th scope="row">Subtotal</th>
-              <td>$37.400</td>
+              <td id="subtotal-carrito">$0</td>
             </tr>
             <tr>
               <th scope="row">Envío</th>
-              <td>$3.500</td>
+              <td id="envio-carrito">$0</td>
             </tr>
             <tr>
               <th scope="row">Total</th>
-              <td><strong>$40.900</strong></td>
+              <td><strong id="total-carrito">$0</strong></td>
             </tr>
           </tbody>
         </table>
-        <p>El costo de envío es estimado y se confirmará antes de completar el pedido.</p>
+        <p>Envío fijo de $3.500 por pedido. Los importes están expresados en pesos argentinos.</p>
 
-        <form action="contacto.html" method="get">
-          <input type="hidden" name="asunto" value="pedido">
-          <button type="submit">Finalizar compra</button>
+        <form id="formulario-compra" action="gracias.html" method="get">
+          <button id="finalizar-compra" type="submit" disabled>Finalizar compra</button>
         </form>
-        <p><a href="index.html#productos">Seguir comprando</a></p>
+        <p><a id="seguir-comprando" href="index.html#productos">Seguir comprando</a></p>
       </section>
     </main>
+
+    <template id="producto-carrito">
+      <li>
+        <article>
+          <h3><a></a></h3>
+          <figure><img alt="" width="140" loading="lazy"></figure>
+          <p>Precio unitario: <strong data-precio></strong></p>
+          <p>
+            <label>Cantidad</label>
+            <input type="number" min="1" max="10" step="1" required>
+          </p>
+          <p>Subtotal: <strong data-subtotal></strong></p>
+          <button type="button" data-quitar>Quitar producto</button>
+        </article>
+      </li>
+    </template>
 
     <footer>
       <section aria-labelledby="titulo-contacto">

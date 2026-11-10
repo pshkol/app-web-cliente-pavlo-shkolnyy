@@ -152,7 +152,7 @@
 
 .pagina-carrito main > section:last-child {
   position: sticky;
-  top: 7rem;
+  top: 10rem;
   align-self: start;
   padding: clamp(1.5rem, 3vw, 2rem);
   border-top: 4px solid var(--color-accent);
@@ -227,6 +227,32 @@
 .pagina-carrito main > section:last-child > p:last-child a {
   color: #f4c9b8;
   font-weight: 700;
+}
+
+#carrito-vacio {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+}
+
+#carrito-vacio h3 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+#carrito-vacio p,
+#estado-carrito {
+  color: var(--color-muted);
+}
+
+#carrito-vacio a {
+  color: var(--color-accent-dark);
+  font-weight: 700;
+}
+
+#estado-carrito:empty {
+  display: none;
 }
 
 @media (max-width: 900px) {

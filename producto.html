@@ -19,7 +19,7 @@
           <li><a href="contacto.html">Contacto</a></li>
           <li>
             <form action="carrito.html" method="get">
-              <button type="submit">Carrito (4)</button>
+              <button type="submit" data-contador-carrito>Carrito (0)</button>
             </form>
           </li>
         </ul>
@@ -60,11 +60,12 @@
             <dd id="disponibilidad-producto"></dd>
           </dl>
         </section>
-        <form action="carrito.html" method="get">
+        <form id="agregar-producto" action="carrito.html" method="get">
           <input id="id-producto" type="hidden" name="producto">
           <label for="cantidad-producto">Cantidad</label>
           <input id="cantidad-producto" name="cantidad" type="number" min="1" max="10" value="1" required>
           <button type="submit">Agregar al carrito</button>
+          <p id="estado-agregar" role="status"></p>
         </form>
         <p><a id="whatsapp-producto">Pedir por WhatsApp</a></p>
         <p><a id="volver-categoria" href="index.html#productos">Volver a los productos</a></p>
