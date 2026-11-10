@@ -1,0 +1,112 @@
+.pagina-gracias main {
+  text-align: center;
+}
+
+.sello-compra {
+  display: grid;
+  place-items: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1.5rem;
+  border: 1px solid var(--color-sage);
+  border-radius: 50%;
+  background: #e5e8dd;
+  color: #4e6142;
+  font-size: 1.8rem;
+}
+
+.etiqueta-gracias {
+  color: var(--color-accent-dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.pagina-gracias h1 {
+  max-width: 13ch;
+  margin: 1rem auto;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
+
+.mensaje-gracias {
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+.resumen-compra {
+  max-width: 34rem;
+  margin: 2.5rem auto 1.5rem;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  border: 1px solid var(--color-line);
+  border-top: 3px solid var(--color-accent);
+  background: var(--color-surface);
+  text-align: left;
+  box-shadow: var(--shadow-soft);
+}
+
+.resumen-compra h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+#fecha-compra,
+.nota-compra {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+}
+
+.resumen-compra ul {
+  margin: 1.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resumen-compra li,
+.resumen-compra dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.65rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.resumen-compra li span {
+  overflow-wrap: anywhere;
+}
+
+.resumen-compra li strong,
+.resumen-compra dd {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.resumen-compra dl {
+  margin-bottom: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.resumen-compra .total-compra {
+  margin-top: 0.5rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.volver-tienda {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.85rem 1.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.volver-tienda:hover {
+  background: var(--color-accent-dark);
+  color: #fff;
+}

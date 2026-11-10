@@ -25,3 +25,5 @@
 - Agregar pagina de resultados de busqueda y el buscador en cada pagina
 
 - Conectar supabase y reemplazar el json de productos por la base de datos de supabase
+
+- Hacer funcional el carrito de compras

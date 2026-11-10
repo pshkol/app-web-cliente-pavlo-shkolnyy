@@ -1,4 +1,5 @@
 import { obtenerProductos } from "./supabase.js";
+import { agregarProducto } from "./carrito-estado.js";
 
 export { obtenerProductos };
 
@@ -57,11 +58,31 @@ export function crearCard(producto, nivelTitulo = "h4") {
   disponibilidad.textContent = producto.disponibilidad;
 
   const detalle = document.createElement("p");
+  detalle.className = "enlace-detalle";
   detalle.append(
     crearEnlace(producto.url, `Ver detalle de ${producto.nombreDetalle}`),
   );
 
-  articulo.append(titulo, figura, descripcion, precio, disponibilidad, detalle);
+  const agregar = document.createElement("button");
+  agregar.type = "button";
+  agregar.textContent = "Agregar al carrito";
+  agregar.setAttribute("aria-label", `Agregar ${producto.nombre} al carrito`);
+  const estado = document.createElement("p");
+  estado.className = "estado-agregar";
+  estado.setAttribute("role", "status");
+  agregar.addEventListener("click", async () => {
+    agregar.disabled = true;
+    try {
+      await agregarProducto(producto);
+      estado.textContent = "Producto agregado al carrito.";
+    } catch (error) {
+      estado.textContent = error.message;
+    } finally {
+      agregar.disabled = false;
+    }
+  });
+
+  articulo.append(titulo, figura, descripcion, precio, disponibilidad, detalle, agregar, estado);
   item.append(articulo);
   return item;
 }

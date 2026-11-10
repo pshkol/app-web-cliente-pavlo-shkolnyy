@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gracias por elegir las velas artesanales de Luz de Cera.">
+    <link rel="stylesheet" href="styles/comunes.css">
+    <link rel="stylesheet" href="styles/gracias.css">
+    <script src="js/gracias.js" type="module"></script>
+    <title>Gracias por tu compra | Luz de Cera</title>
+  </head>
+  <body class="pagina-gracias">
+    <header>
+      <a href="index.html" aria-label="Ir al inicio de Luz de Cera"><strong>Luz de Cera</strong></a>
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html#productos">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li>
+            <form action="carrito.html" method="get">
+              <button type="submit" data-contador-carrito>Carrito (0)</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+      <form class="buscador" role="search" action="busqueda.html" method="get">
+        <label class="solo-lectores" for="buscar-productos">Buscar productos</label>
+        <input id="buscar-productos" type="search" name="q" placeholder="Buscá por nombre, aroma o categoría" maxlength="120">
+        <button type="submit">Buscar</button>
+      </form>
+    </header>
+    <main>
+      <noscript><p>Activá JavaScript para ver el resumen de tu compra.</p></noscript>
+      <section id="compra-completada" aria-labelledby="titulo-gracias" hidden>
+        <span class="sello-compra" aria-hidden="true">✓</span>
+        <p class="etiqueta-gracias">Hecho a mano, elegido por vos</p>
+        <h1 id="titulo-gracias">¡Gracias por tu compra!</h1>
+        <p class="mensaje-gracias">Que esta pequeña luz llene tus días de calma.<br>Gracias por elegir Luz de Cera.</p>
+        <section class="resumen-compra" aria-labelledby="titulo-compra">
+          <h2 id="titulo-compra">Tu compra</h2>
+          <p id="fecha-compra"></p>
+          <ul id="productos-compra"></ul>
+          <dl>
+            <div><dt>Subtotal</dt><dd id="subtotal-compra"></dd></div>
+            <div><dt>Envío</dt><dd id="envio-compra"></dd></div>
+            <div class="total-compra"><dt>Total</dt><dd id="total-compra"></dd></div>
+          </dl>
+        </section>
+        <p class="nota-compra">Compra de demostración: no se realizó ningún cobro.</p>
+        <a class="volver-tienda" href="index.html#productos">Volver a la tienda <span aria-hidden="true">→</span></a>
+      </section>
+      <section id="sin-compra" hidden>
+        <h1>Todavía no hay una compra para mostrar</h1>
+        <p>Encontrá tu vela favorita y completá tu carrito.</p>
+        <a class="volver-tienda" href="index.html#productos">Explorar las velas</a>
+      </section>
+    </main>
+    <footer>
+      <h2>Contacto</h2>
+      <address>
+        <ul>
+          <li><a href="mailto:hola@luzdecera.com">hola@luzdecera.com</a></li>
+          <li><a href="https://wa.me/541112345678">WhatsApp: +54 11 1234-5678</a></li>
+          <li><a href="https://www.instagram.com/luzdecera">Instagram: @luzdecera</a></li>
+        </ul>
+      </address>
+      <p><small>&copy; 2026 Luz de Cera. Todos los derechos reservados.</small></p>
+    </footer>
+  </body>
+</html>

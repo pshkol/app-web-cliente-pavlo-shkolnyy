@@ -9,8 +9,10 @@ Sitio web frontend para una tienda ficticia de velas artesanales. El proyecto pr
 - Resultados en cards, skeleton durante la carga y estados de búsqueda vacía o fallida con reintento.
 - Productos organizados en las categorías más vendidas, animales y aromáticas.
 - Una única página de detalle que consulta el producto indicado en la URL.
-- Selector de cantidad y botón simulado para agregar productos al carrito.
-- Carrito de compras con edición de cantidades, subtotales y resumen del pedido.
+- Agregar productos desde el catálogo, la búsqueda o el detalle, y quitarlos desde el carrito.
+- Edición de cantidades con subtotales, envío y total actualizados automáticamente.
+- Carrito persistente en `localStorage`, sincronizado entre pestañas con `BroadcastChannel`.
+- Pantalla de agradecimiento al finalizar la compra, con resumen del pedido.
 - Formulario de contacto con validaciones nativas de HTML.
 - Accesos directos para realizar consultas y pedidos por WhatsApp.
 - Diseño responsive para computadoras, tablets y dispositivos móviles.
@@ -31,7 +33,10 @@ El sitio utiliza solamente HTML, CSS y JavaScript. No utiliza npm, frameworks ni
 .
 ├── js/
 │   ├── busqueda.js          # Filtrado y estados de la búsqueda
+│   ├── carrito-estado.js    # Persistencia, operaciones y sincronización del carrito
+│   ├── carrito.js           # Productos, cantidades y resumen del carrito
 │   ├── config.js            # Configuración pública generada (ignorada por Git)
+│   ├── gracias.js           # Resumen de la compra finalizada
 │   ├── producto.js          # Detalle según el parámetro id de la URL
 │   ├── productos.js         # Catálogo, cards y skeleton compartidos
 │   └── supabase.js          # Consultas REST y adaptación de los datos
@@ -43,11 +48,13 @@ El sitio utiliza solamente HTML, CSS y JavaScript. No utiliza npm, frameworks ni
 │   ├── carrito.css          # Estilos del carrito
 │   ├── comunes.css          # Estilos globales, header y footer
 │   ├── contacto.css         # Estilos de contacto
+│   ├── gracias.css          # Pantalla de agradecimiento
 │   ├── inicio.css           # Estilos de la página principal
 │   └── producto.css         # Estilos del detalle de producto
 ├── busqueda.html
 ├── carrito.html
 ├── contacto.html
+├── gracias.html            # Confirmación de compra simulada
 ├── producto.html           # Página única de detalle
 └── index.html
 ```
@@ -112,12 +119,20 @@ El formulario del header envía la consulta a `busqueda.html?q=...`, por lo que 
 
 Durante la consulta a Supabase se muestran skeletons con las proporciones de las cards. La búsqueda filtra el catálogo recibido sin distinguir mayúsculas ni tildes. La animación respeta la preferencia de movimiento reducido del dispositivo. Si la carga falla, se ofrece un botón para reintentar.
 
+## Carrito y compra
+
+El carrito comienza vacío. Se pueden agregar productos desde las cards o elegir una cantidad en el detalle. Agregar el mismo producto suma unidades a su línea, con un máximo de 10. Desde `carrito.html` se puede cambiar la cantidad (entero entre 1 y 10) o quitar un producto. Los subtotales y el total se recalculan al editar; el envío cuesta $3.500 por pedido y es $0 cuando el carrito está vacío. Los importes son pesos argentinos y se calculan en centavos para evitar errores de coma flotante.
+
+`js/carrito-estado.js` guarda los productos en `localStorage` con la clave `luz-de-cera:carrito:v1`. Cada cambio se anuncia mediante `BroadcastChannel`; las otras pestañas vuelven a leer la versión persistida. También se escucha `storage` como respaldo y `pageshow` al volver mediante el historial. Web Locks serializa las operaciones simultáneas en navegadores compatibles; sin esta API, se conserva el último guardado. La sincronización requiere pestañas del mismo origen (protocolo, dominio y puerto).
+
+Finalizar la compra guarda el resumen en `sessionStorage` de esa pestaña, vacía el carrito en todas las pestañas y abre `gracias.html`. El resumen se mantiene al recargar la confirmación. Un carrito vacío no permite finalizar. Los errores de almacenamiento y las cantidades inválidas muestran mensajes sin confirmar la operación.
+
 ## Alcance actual
 
 Este proyecto es una demostración exclusivamente frontend:
 
-- El carrito contiene información simulada y no conserva cambios entre páginas.
-- Los botones para agregar, actualizar o finalizar una compra no se conectan con un backend.
+- El carrito conserva los productos y precios agregados en este navegador; no se comparte entre dispositivos.
+- La finalización es simulada: no registra pedidos en un backend ni procesa pagos.
 - El formulario de contacto valida los datos, pero no los envía ni almacena.
 - El catálogo se lee de Supabase; no existe autenticación de usuarios ni procesamiento de pagos.
 

@@ -178,6 +178,17 @@
   background: var(--color-ink);
 }
 
+#estado-agregar {
+  grid-column: 1 / -1;
+  margin: 0.5rem 0 0;
+  color: var(--color-accent-dark);
+  font-size: 0.85rem;
+}
+
+#estado-agregar:empty {
+  display: none;
+}
+
 .pagina-producto main > article > p:first-of-type {
   margin: 0.75rem 0 0;
 }
